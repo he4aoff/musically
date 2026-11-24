@@ -431,7 +431,8 @@
     }
 
     function initSupabase() {
-      const url = localStorage.getItem('musically_sb_url'), key = localStorage.getItem('musically_sb_key');
+      const url = localStorage.getItem('musically_sb_url') || 'https://vmcmbgcqifbjdzvbxhmy.supabase.co';
+      const key = localStorage.getItem('musically_sb_key') || 'sb_publishable_AOBE46H3KSFceR0hXCfoAA_fyDlNRed';
       if (url && key && window.supabase) { try { supabaseClient = window.supabase.createClient(url, key); updateModalConnectionBadge(); return true; } catch (e) {} }
       supabaseClient = null; updateModalConnectionBadge(); return false;
     }
